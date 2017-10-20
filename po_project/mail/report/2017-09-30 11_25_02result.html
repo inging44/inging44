@@ -51,8 +51,12 @@ a.popup_link:hover {
     text-align: left;
     font-size: 8pt;
     width: 500px;
+    word-wrap:break-word;
 }
-
+.pre_c{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 }
 /* -- report ------------------------------------------------------------------------ */
 #show_detail_line {
@@ -177,7 +181,7 @@ function showOutput(id, name) {
                     name,
                     "resizable,scrollbars,status,width=800,height=450");
     d = w.document;
-    d.write("<pre>");
+    d.write("<pre class='pre_c'>");
     d.write(html_escape(output_list[id]));
     d.write("\n");
     d.write("<a href='javascript:window.close()'>close</a>\n");
@@ -189,9 +193,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2017-09-28 14:34:14</p>
-<p class='attribute'><strong>Duration:</strong> 0:01:01.722000</p>
-<p class='attribute'><strong>Status:</strong> Pass 4</p>
+<p class='attribute'><strong>Start Time:</strong> 2017-09-30 11:25:02</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:13.063000</p>
+<p class='attribute'><strong>Status:</strong> Failure 1</p>
 
 <p class='description'>运行环境：windows 7, Chrome</p>
 </div>
@@ -219,125 +223,58 @@ function showOutput(id, name) {
     <td>Fail</td>
     <td>Error</td>
     <td>View</td>
+    <td>ScreenShot</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>login_case.LoginTest</td>
-    <td>4</td>
-    <td>4</td>
+    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td>&nbsp;</td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_login_pwd_null</div></td>
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_login_user_pwd_null: 用户名、密码为空登录</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
 
-    <div id='div_pt1.1' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.1: 2
-D:\sw\python2.7\lib\site-packages\selenium\webdriver\remote\webdriver.py:895: UserWarning: name used for saved screenshot does not match file type. It should end with a `.png` extension
-  "type. It should end with a `.png` extension", UserWarning)
+ft1.1: Traceback (most recent call last):
+  File "E:\git\inging44\po_project\mail\test_case\login_case.py", line 17, in test_login_user_pwd_null
+    self.assertEqual(po.login_error_hint(), u'è¯·è¾å¥å¸å·11')
+AssertionError: u'\u8bf7\u8f93\u5165\u5e10\u53f7' != u'\u8bf7\u8f93\u5165\u5e10\u53f711'
+- è¯·è¾å¥å¸å·
++ è¯·è¾å¥å¸å·11
+?      ++
+
 
 
         </pre>
     </div>
     <!--css div popup end-->
-
     </td>
-</tr>
-
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_login_success</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        pass</a>
-
-    <div id='div_pt1.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.2: 4
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_login_user_pwd_error</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
-        pass</a>
-
-    <div id='div_pt1.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.3: 3
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt1.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_login_user_pwd_null</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
-        pass</a>
-
-    <div id='div_pt1.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.4: 1
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
+    <td><a hidden='hidden' href="" target='_blank'><img  winth="100" height="100" src="" alt="screenshot1"/></a></td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>4</td>
-    <td>4</td>
+    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr>
 </table>

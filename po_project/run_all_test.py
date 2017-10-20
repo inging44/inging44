@@ -4,7 +4,9 @@ from HTMLTestRunner import HTMLTestRunner
 from email.mime.text import MIMEText
 from email.header import Header
 import smtplib, os
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 #发送测试报告，需要配置你的邮箱账号
 def send_mail(file_new):
     f = open(file_new, 'rb')
@@ -26,14 +28,12 @@ def new_report(testreport):
     lists = os.listdir(testreport)
     lists.sort(key=lambda fn: os.path.getmtime(testreport + '\\' + fn))
     file_new = os.path.join(testreport, lists[-1])
-    print(file_new)
     return file_new
 
 #指定测试用例为当前文件夹下的test_case目录
 test_dir = './mail/test_case'
-test_report = 'E:\\inging44\\po_project\\mail\\report'
+test_report = 'E:\\git\\inging44\\po_project\\mail\\report'
 discover = unittest.defaultTestLoader.discover(test_dir, pattern = '*_case.py')
-
 if __name__ == "__main__":
     now = time.strftime("%Y-%m-%d %H_%M_%S")
     filename = test_report + '/' + now + 'result.html'
@@ -42,7 +42,6 @@ if __name__ == "__main__":
     runner = HTMLTestRunner(stream=fp,title=u'测试报告', description=u"运行环境：windows 7, Chrome")
     runner.run(discover)
     fp.close()
-    
     new_report = new_report(test_report)
     # send_mail(new_report)
 

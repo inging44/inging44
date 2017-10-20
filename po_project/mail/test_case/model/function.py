@@ -13,6 +13,7 @@ def insert_img(driver, file_name):
     #print(base)
     file_path = base + '/mail/report/image/' + file_name
     driver.get_screenshot_as_file(file_path)
+    return file_path
 
 '''
 #用于验证该脚本是否有效
